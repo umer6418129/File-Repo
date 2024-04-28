@@ -1,6 +1,6 @@
 <?php
 
-namespace umer2\repo\src;
+namespace umer2\repo;
 
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;

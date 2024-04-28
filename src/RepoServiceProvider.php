@@ -1,7 +1,7 @@
 <?php
 // YourPackageServiceProvider.php
 
-namespace umer2\repo\src;
+namespace umer2\repo;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\File;

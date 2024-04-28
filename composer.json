@@ -1,0 +1,17 @@
+{
+    "name": "lara/repo",
+    "description": "A Laravel package for file management",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Muhammad Umer Farooq"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Lara\\Repo\\": "src/"
+        }
+    },
+    "require": {}
+}

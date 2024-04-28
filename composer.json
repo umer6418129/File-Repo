@@ -1,5 +1,5 @@
 {
-    "name": "lara/repo",
+    "name": "tss/repo",
     "description": "A Laravel package for file management",
     "type": "library",
     "license": "MIT",

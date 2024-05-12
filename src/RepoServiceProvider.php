@@ -19,19 +19,34 @@ class RepoServiceProvider extends ServiceProvider
 
     protected function generateMigration()
     {
-        // Generate migration file using Artisan command
-        $migrationName = 'create_file_repos_table';
-        $this->app['Illuminate\Contracts\Console\Kernel']->call('make:migration', [
-            'name' => $migrationName,
-            '--create' => 'file_repos', // Specify table name
-            '--table' => true, // Indicates it's a table creation migration
-        ]);
+        // Check if the migration file already exists
+        if (!$this->migrationExists('create_file_repos_table')) {
+            // Generate migration file using Artisan command
+            $migrationName = 'create_file_repos_table';
+            $this->app['Illuminate\Contracts\Console\Kernel']->call('make:migration', [
+                'name' => $migrationName,
+                '--create' => 'file_repos', // Specify table name
+                '--table' => true, // Indicates it's a table creation migration
+            ]);
 
+            // Find the path of the generated migration file
+            $migrationPath = $this->getMigrationFilePath($migrationName);
+
+            // Modify the generated migration file to include the desired columns
+            $this->modifyMigrationFile($migrationPath);
+        }
+    }
+
+    protected function migrationExists(string $migrationName)
+    {
         // Find the path of the generated migration file
-        $migrationPath = $this->getMigrationFilePath($migrationName);
-
-        // Modify the generated migration file to include the desired columns
-        $this->modifyMigrationFile($migrationPath);
+        $migrationFiles = File::files(database_path('migrations'));
+        foreach ($migrationFiles as $file) {
+            if (str_contains($file->getFilename(), $migrationName)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     protected function getMigrationFilePath(string $migrationName)

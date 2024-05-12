@@ -80,6 +80,9 @@ class RepoServiceProvider extends ServiceProvider
         // Update the table name
         $content = str_replace("Schema::create('1'", "Schema::create('file_repos'", $content);
 
+        // Update the table name in the down() method
+        $content = str_replace("Schema::dropIfExists('1')", "Schema::dropIfExists('file_repos')", $content);
+
         // Write the modified content back to the migration file
         file_put_contents($migrationPath, $content);
     }

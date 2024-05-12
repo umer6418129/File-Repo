@@ -68,13 +68,17 @@ class RepoServiceProvider extends ServiceProvider
 
         // Modify the migration content to include desired columns and their data types
         // Example: Add columns 'id', 'ref_id', 'ref_name', 'path'
-        $content = str_replace("Schema::create('file_repos'", "Schema::create('file_repos', function (\$table) {\n" .
-            "            \$table->id();\n" .
-            "            \$table->integer('ref_id');\n" .
-            "            \$table->string('ref_name');\n" .
-            "            \$table->text('path');\n" .
-            "            \$table->timestamps();\n" .
-            "        });", $content);
+        $content = str_replace(
+            '$table->id();',
+            "\$table->id();\n" .
+                "            \$table->integer('ref_id');\n" .
+                "            \$table->string('ref_name');\n" .
+                "            \$table->text('path');\n",
+            $content
+        );
+
+        // Update the table name
+        $content = str_replace("Schema::create('1'", "Schema::create('file_repos'", $content);
 
         // Write the modified content back to the migration file
         file_put_contents($migrationPath, $content);

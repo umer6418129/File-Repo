@@ -1,5 +1,5 @@
 {
-    "name": "umer2/repo",
+    "name": "File/repo",
     "description": "A Laravel package for file management",
     "type": "library",
     "license": "MIT",
@@ -10,7 +10,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "umer2\\repo\\": "src/"
+            "File\\repo\\": "src/"
         }
     },
     "require": {}

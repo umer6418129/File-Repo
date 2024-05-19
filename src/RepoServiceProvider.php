@@ -1,7 +1,7 @@
 <?php
 // YourPackageServiceProvider.php
 
-namespace File\repo;
+namespace file\repo;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\File;

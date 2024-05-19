@@ -1,6 +1,6 @@
 <?php
 
-namespace File\repo;
+namespace file\repo;
 
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;

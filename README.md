@@ -35,14 +35,14 @@ To upload a file, use the upload method. This stores the file and creates a reco
 ```php
 use file\repo\FileManager;
 
-FileManager::upload('users', $userId, $requestuest->file('profile_picture'));
+FileManager::upload('users', $userId, $request->file('profile_picture'));
 ```
 
 ## Update Files
 
 To update an existing file, use the `update` method. This replaces the old file with a new one and updates the record in the database.
 ```php
-FileManager::update('users', $id, $requestuest->file('new_profile_picture'));
+FileManager::update('users', $id, $request->file('new_profile_picture'));
 ```
 
 ## Delete Files
@@ -58,7 +58,7 @@ To retrieve all file paths associated with a specific reference table and ID, us
 $paths = FileManager::get_path_by('users', $userId);
 ```
 
-# Example: User Profile Picture Management
+# Example: Product with image Management
 
 ## Step 1: File Upload
 Handle the file upload when a Product upload.

@@ -1,4 +1,8 @@
 # FileManager Plugin for Laravel
+
+# Note:
+currently it is not compatible with latest version of laravel 11, this is under development right now
+
 ## Overview
 The FileManager plugin is a custom Laravel solution designed to simplify file management. It handles file uploads, updates, deletions, and retrievals while maintaining references in a database table. This plugin leverages Laravel's built-in filesystem and database functionalities to offer a robust and easy-to-use file management system.
 

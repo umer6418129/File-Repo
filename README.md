@@ -19,12 +19,24 @@ You can install this plugin by following command :
 composer require file/repo
 ```
 ## Step 2: Register Service Provider
-Add the service provider to `config/app.php`:
+Add the service provider to if you are using laravel version less than 11 `config/app.php`:
 ```php
 'providers' => [
     // Other Service Providers
     file\repo\RepoServiceProvider::class,
 ],
+```
+and if you are using laravel 11 or update version you should add the service provider into `bootstrap/providers.php`:
+
+```php
+<?php
+
+return [
+    // Other Service Providers
+    file\repo\RepoServiceProvider::class,
+
+];
+
 ```
 ## Step 3: Run Migration
 The service provider will automatically generate a migration for the file_repos table when the application boots. Run the migration using:
